@@ -4,7 +4,7 @@ from dice import DicePool
 
 import colorama
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 
 
 def parse_arguments():
