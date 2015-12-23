@@ -21,7 +21,7 @@ Usage
 -----
 
 Input the dice pool using the first letter of the color of the die (except black Setback die which
-use "k").
+use ``k``).
 
 .. code:: shell-session
 

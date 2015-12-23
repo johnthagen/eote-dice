@@ -30,6 +30,8 @@ setup(
         'Topic :: Games/Entertainment :: Role-Playing',
     ],
 
+    py_modules=['eote_dice', 'dice'],
+
     scripts=['eote_dice.py'],
 
     entry_points={
