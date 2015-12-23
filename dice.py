@@ -272,20 +272,21 @@ class DicePool:
 
     @staticmethod
     def _sort_dice_by_power(dice_char: str) -> int:
-        dice_color = DiceColor[dice_char]
-        if dice_color is DiceColor.y:
-            return 1
-        elif dice_color is DiceColor.g:
-            return 2
-        elif dice_color is DiceColor.b:
-            return 3
-        elif dice_color is DiceColor.r:
-            return 4
-        elif dice_color is DiceColor.p:
-            return 5
-        elif dice_color is DiceColor.k:
-            return 6
-        else:
+        try:
+            dice_color = DiceColor[dice_char]
+            if dice_color is DiceColor.y:
+                return 1
+            elif dice_color is DiceColor.g:
+                return 2
+            elif dice_color is DiceColor.b:
+                return 3
+            elif dice_color is DiceColor.r:
+                return 4
+            elif dice_color is DiceColor.p:
+                return 5
+            elif dice_color is DiceColor.k:
+                return 6
+        except KeyError:
             raise ValueError('Invalid dice character given: {}'.format(dice_char))
 
     @classmethod
