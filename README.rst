@@ -25,7 +25,7 @@ use ``k``).
 
 .. code:: shell-session
 
-    $ eote_dice --pool "yygbrppk"
+    $ eote_dice --pool yygbrppk
 
 
 Releases
