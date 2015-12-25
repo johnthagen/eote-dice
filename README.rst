@@ -9,7 +9,7 @@ Analyze SW EotE role-playing game dice pools.
 Installation
 ------------
 
-*Note: Linux and Mac OSX users should use ``pip3`` rather than ``pip``.*
+*Note: Linux and Mac OSX users should use* ``pip3`` *rather than* ``pip``.
 
 You can install, upgrade, and uninstall ``eote-dice`` with these commands:
 
