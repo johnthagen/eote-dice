@@ -31,6 +31,10 @@ use ``k``).
 Releases
 --------
 
+0.1.3 - 2015-12-25
+^^^^^^^^^^^^^^^^^^
+Fix pip install dependency issues.
+
 0.1.2 - 2015-12-23
 ^^^^^^^^^^^^^^^^^^
 Improve feedback when user enters an incorrect dice color.

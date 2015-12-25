@@ -1,11 +1,9 @@
 from setuptools import setup
 
-import eote_dice
-
 
 setup(
     name='eote-dice',
-    version=eote_dice.__version__,
+    version='0.1.3',
 
     description='Utility for analyzing EotE dice rolls.',
     long_description=open('README.rst').read(),
@@ -16,6 +14,7 @@ setup(
     url='https://github.com/johnthagen/eote-dice',
     license='MIT',
 
+    install_requires=open('requirements.txt').readlines(),
     zip_safe=False,
 
     classifiers=[

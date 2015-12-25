@@ -6,8 +6,6 @@ from dice import DicePool
 
 import colorama
 
-__version__ = '0.1.2'
-
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Analyzes EotE dice pools.')
