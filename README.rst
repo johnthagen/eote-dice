@@ -34,6 +34,11 @@ use ``k``).  Use ``--roll`` to perform a roll or ``--analyze`` to statistically 
 Releases
 --------
 
+0.3.1 - 2015-12-31
+^^^^^^^^^^^^^^^^^^
+
+For rolls, use bright ANSI colors.
+
 0.3.0 - 2015-12-31
 ^^^^^^^^^^^^^^^^^^
 
