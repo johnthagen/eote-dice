@@ -347,16 +347,19 @@ class DicePool:
             brightness_code = colorama.Style.BRIGHT
             if dice_color is DiceColor.k:
                 brightness_code = ''
-            s += ('{}{}{}{}'.format(brightness_code, color_code, dice_color.name,
-                                    colorama.Style.RESET_ALL))
+            s += '{}{}{}{}'.format(brightness_code, color_code, dice_color.name,
+                                   colorama.Style.RESET_ALL)
         return s
 
     @staticmethod
     def _symbols_to_ascii_(symbols: Sequence[Symbol]) -> str:
-        s = colorama.Style.BRIGHT
+        s = ''
         for symbol in symbols:
-            s += symbol_to_ansi[symbol] + symbol.value + colorama.Fore.RESET
-        s += colorama.Style.RESET_ALL
+            brightness_code = colorama.Style.BRIGHT
+            if symbol is Symbol.Threat:
+                brightness_code = ''
+            s += '{}{}{}{}'.format(brightness_code, symbol_to_ansi[symbol], symbol.value,
+                                   colorama.Style.RESET_ALL)
         return s
 
     @staticmethod

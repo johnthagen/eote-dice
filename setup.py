@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name='eote-dice',
-    version='0.3.1',
+    version='0.3.2',
 
     description='Utility for analyzing EotE dice rolls.',
     long_description=open('README.rst').read(),
