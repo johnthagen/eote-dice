@@ -1,9 +1,9 @@
-from setuptools import setup
+import setuptools
 
 
-setup(
+setuptools.setup(
     name='eote-dice',
-    version='0.1.3',
+    version='0.2.0',
 
     description='Utility for analyzing EotE dice rolls.',
     long_description=open('README.rst').read(),
