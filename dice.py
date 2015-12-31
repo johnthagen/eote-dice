@@ -353,9 +353,10 @@ class DicePool:
 
     @staticmethod
     def _symbols_to_ascii_(symbols: Sequence[Symbol]) -> str:
-        s = ''
+        s = colorama.Style.BRIGHT
         for symbol in symbols:
-            s += symbol_to_ansi[symbol] + symbol.value + colorama.Style.RESET_ALL
+            s += symbol_to_ansi[symbol] + symbol.value + colorama.Fore.RESET
+        s += colorama.Style.RESET_ALL
         return s
 
     @staticmethod
