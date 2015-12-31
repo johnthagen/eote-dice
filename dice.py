@@ -2,30 +2,36 @@
 
 import collections
 import enum
-import itertools
-from typing import List, Mapping, Sequence
+import random
+from typing import List, Mapping, Sequence, Tuple
 
 import colorama
-
-_enum_value = itertools.count(1)
 
 
 @enum.unique
 class Symbol(enum.Enum):
-    Blank = next(_enum_value)
+    Triumph = 'T'
+    Success = 's'
+    Advantage = 'a'
 
-    Triumph = next(_enum_value)
-    Success = next(_enum_value)
-    Advantage = next(_enum_value)
+    Despair = 'D'
+    Failure = 'f'
+    Threat = 'r'
 
-    Despair = next(_enum_value)
-    Failure = next(_enum_value)
-    Threat = next(_enum_value)
+
+symbol_to_ansi = {
+    Symbol.Triumph: colorama.Fore.YELLOW,
+    Symbol.Success: colorama.Fore.GREEN,
+    Symbol.Advantage: colorama.Fore.CYAN,
+    Symbol.Despair: colorama.Fore.RED,
+    Symbol.Failure: colorama.Fore.MAGENTA,
+    Symbol.Threat: colorama.Fore.BLACK + colorama.Back.WHITE,
+}
 
 
 class Side:
     def __init__(self, symbols: Sequence[Symbol]):
-        self.symbols = symbols
+        self._symbols = symbols
 
     def count_symbol(self, symbol: Symbol) -> int:
         n = 0
@@ -33,6 +39,10 @@ class Side:
             if current_symbol is symbol:
                 n += 1
         return n
+
+    @property
+    def symbols(self):
+        return self._symbols
 
 
 class Distribution:
@@ -171,12 +181,15 @@ class Dice:
     def rating(self) -> Rating:
         return self._rating
 
+    def roll(self) -> Sequence[Symbol]:
+        return random.choice(self._sides).symbols
+
 
 class BoostDice(Dice):
     def __init__(self):
         super().__init__(sides=[
-            Side(symbols=[Symbol.Blank]),
-            Side(symbols=[Symbol.Blank]),
+            Side(symbols=[]),
+            Side(symbols=[]),
             Side(symbols=[Symbol.Advantage, Symbol.Advantage]),
             Side(symbols=[Symbol.Advantage]),
             Side(symbols=[Symbol.Success, Symbol.Advantage]),
@@ -187,7 +200,7 @@ class BoostDice(Dice):
 class AbilityDice(Dice):
     def __init__(self):
         super().__init__(sides=[
-            Side(symbols=[Symbol.Blank]),
+            Side(symbols=[]),
             Side(symbols=[Symbol.Success]),
             Side(symbols=[Symbol.Success]),
             Side(symbols=[Symbol.Success, Symbol.Success]),
@@ -201,7 +214,7 @@ class AbilityDice(Dice):
 class ProficiencyDice(Dice):
     def __init__(self):
         super().__init__(sides=[
-            Side(symbols=[Symbol.Blank]),
+            Side(symbols=[]),
             Side(symbols=[Symbol.Success]),
             Side(symbols=[Symbol.Success]),
             Side(symbols=[Symbol.Success, Symbol.Success]),
@@ -219,8 +232,8 @@ class ProficiencyDice(Dice):
 class SetbackDice(Dice):
     def __init__(self):
         super().__init__(sides=[
-            Side(symbols=[Symbol.Blank]),
-            Side(symbols=[Symbol.Blank]),
+            Side(symbols=[]),
+            Side(symbols=[]),
             Side(symbols=[Symbol.Failure]),
             Side(symbols=[Symbol.Failure]),
             Side(symbols=[Symbol.Threat]),
@@ -231,7 +244,7 @@ class SetbackDice(Dice):
 class DifficultyDice(Dice):
     def __init__(self):
         super().__init__(sides=[
-            Side(symbols=[Symbol.Blank]),
+            Side(symbols=[]),
             Side(symbols=[Symbol.Failure]),
             Side(symbols=[Symbol.Failure, Symbol.Failure]),
             Side(symbols=[Symbol.Threat]),
@@ -245,7 +258,7 @@ class DifficultyDice(Dice):
 class ChallengeDice(Dice):
     def __init__(self):
         super().__init__(sides=[
-            Side(symbols=[Symbol.Blank]),
+            Side(symbols=[]),
             Side(symbols=[Symbol.Failure]),
             Side(symbols=[Symbol.Failure]),
             Side(symbols=[Symbol.Failure, Symbol.Failure]),
@@ -288,12 +301,12 @@ def dice_from_color_char(color_char: str) -> Dice:
 
 
 dice_color_to_ansi = {
-    DiceColor.b: colorama.Fore.CYAN,
-    DiceColor.g: colorama.Fore.GREEN,
     DiceColor.y: colorama.Fore.YELLOW,
-    DiceColor.k: colorama.Fore.BLACK + colorama.Back.WHITE,
+    DiceColor.g: colorama.Fore.GREEN,
+    DiceColor.b: colorama.Fore.CYAN,
+    DiceColor.r: colorama.Fore.RED,
     DiceColor.p: colorama.Fore.MAGENTA,
-    DiceColor.r: colorama.Fore.RED
+    DiceColor.k: colorama.Fore.BLACK + colorama.Back.WHITE,
 }
 
 
@@ -309,6 +322,21 @@ class DicePool:
 
         return rating
 
+    def roll(self) -> List[Symbol]:
+        symbols = []
+        for dice in self._pool:
+            symbols.extend(dice.roll())
+        return symbols
+
+    def roll_ascii(self) -> Tuple[str, str]:
+        symbols = self.roll()
+        symbols.sort(key=self._sort_symbol_by_power)
+
+        cancelled_symbols = self._cancel_symbols(symbols)
+        cancelled_symbols.sort(key=self._sort_symbol_by_power)
+
+        return self._symbols_to_ascii_(symbols), self._symbols_to_ascii_(cancelled_symbols)
+
     def __str__(self):
         s = ''
         for dice in self._pool:
@@ -322,6 +350,68 @@ class DicePool:
             s += ('{}{}{}{}'.format(brightness_code, color_code, dice_color.name,
                                     colorama.Style.RESET_ALL))
         return s
+
+    @staticmethod
+    def _symbols_to_ascii_(symbols: Sequence[Symbol]) -> str:
+        s = ''
+        for symbol in symbols:
+            s += symbol_to_ansi[symbol] + symbol.value + colorama.Style.RESET_ALL
+        return s
+
+    @staticmethod
+    def _cancel_symbols(symbols: Sequence[Symbol]) -> List[Symbol]:
+        net_success = 0
+        net_advantage = 0
+
+        # Do not inspect Triumph or Despair, because they do not cancel out.
+        net_symbols = []
+        for symbol in symbols:
+            if symbol is Symbol.Success:
+                net_success += 1
+            elif symbol is Symbol.Advantage:
+                net_advantage += 1
+            elif symbol is Symbol.Failure:
+                net_success -= 1
+            elif symbol is Symbol.Threat:
+                net_advantage -= 1
+            # Allow Triumph and Despair pass through unchanged.
+            else:
+                net_symbols.append(symbol)
+
+        if net_success >= 0:
+            success_symbol = Symbol.Success
+        else:
+            net_success *= -1
+            success_symbol = Symbol.Failure
+
+        if net_advantage >= 0:
+            advantage_symbol = Symbol.Advantage
+        else:
+            net_advantage *= -1
+            advantage_symbol = Symbol.Threat
+
+        for i in range(0, net_success):
+            net_symbols.append(success_symbol)
+
+        for i in range(0, net_advantage):
+            net_symbols.append(advantage_symbol)
+
+        return net_symbols
+
+    @staticmethod
+    def _sort_symbol_by_power(symbol: Symbol) -> int:
+        if symbol is Symbol.Triumph:
+            return 1
+        elif symbol is Symbol.Success:
+            return 2
+        elif symbol is Symbol.Advantage:
+            return 3
+        elif symbol is Symbol.Despair:
+            return 4
+        elif symbol is Symbol.Failure:
+            return 5
+        elif symbol is Symbol.Threat:
+            return 6
 
     @staticmethod
     def _sort_dice_by_power(dice_char: str) -> int:

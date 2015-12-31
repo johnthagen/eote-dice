@@ -4,7 +4,7 @@ EotE Dice
 .. image:: https://badge.fury.io/py/eote-dice.png
     :target: http://badge.fury.io/py/eote-dice
 
-Analyze SW EotE role-playing game dice pools.
+Analyze or roll SW EotE role-playing game dice pools.
 
 Installation
 ------------
@@ -23,15 +23,22 @@ Usage
 -----
 
 Input the dice pool using the first letter of the color of the die (except black Setback die which
-use ``k``).
+use ``k``).  Use ``--roll`` to perform a roll or ``--analyze`` to statistically analyze.
 
 .. code:: shell-session
 
-    $ eote_dice --pool yygbrppk
+    $ eote_dice --pool yygbrppk --analyze
+    $ eote_dice --pool yygbrppk --roll
 
 
 Releases
 --------
+
+0.3.0 - 2015-12-31
+^^^^^^^^^^^^^^^^^^
+
+Added rolling capability.
+
 
 0.2.0 - 2015-12-31
 ^^^^^^^^^^^^^^^^^^
