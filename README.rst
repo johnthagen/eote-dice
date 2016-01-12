@@ -4,6 +4,9 @@ EotE Dice
 .. image:: https://badge.fury.io/py/eote-dice.png
     :target: http://badge.fury.io/py/eote-dice
 
+.. image:: https://travis-ci.org/johnthagen/eote-dice.svg
+    :target: https://travis-ci.org/johnthagen/eote-dice
+
 Analyze or roll SW EotE role-playing game dice pools.
 
 Installation
