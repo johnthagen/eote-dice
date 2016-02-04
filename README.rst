@@ -1,11 +1,20 @@
 EotE Dice
 =========
 
-.. image:: https://badge.fury.io/py/eote-dice.png
-    :target: http://badge.fury.io/py/eote-dice
-
 .. image:: https://travis-ci.org/johnthagen/eote-dice.svg
     :target: https://travis-ci.org/johnthagen/eote-dice
+
+.. image:: https://codecov.io/github/johnthagen/eote-dice/coverage.svg
+    :target: https://codecov.io/github/johnthagen/eote-dice
+
+.. image:: https://img.shields.io/pypi/v/eote-dice.svg
+    :target: https://pypi.python.org/pypi/eote-dice
+
+.. image:: https://img.shields.io/pypi/pyversions/eote-dice.svg
+    :target: https://pypi.python.org/pypi/eote-dice/
+
+.. image:: https://img.shields.io/pypi/dd/eote-dice.svg
+    :target: https://pypi.python.org/pypi/eote-dice/
 
 Analyze or roll SW EotE role-playing game dice pools.
 
