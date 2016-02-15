@@ -10,8 +10,8 @@ EotE Dice
 .. image:: https://img.shields.io/pypi/v/eote-dice.svg
     :target: https://pypi.python.org/pypi/eote-dice
 
-.. image:: https://img.shields.io/pypi/status/cppcheck-junit.svg
-    :target: https://pypi.python.org/pypi/cppcheck-junit
+.. image:: https://img.shields.io/pypi/status/eote-dice.svg
+    :target: https://pypi.python.org/pypi/eote-dice
 
 .. image:: https://img.shields.io/pypi/pyversions/eote-dice.svg
     :target: https://pypi.python.org/pypi/eote-dice/
