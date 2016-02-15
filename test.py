@@ -4,7 +4,6 @@
 
 import unittest
 
-# from eote_dice import parse_arguments
 from dice import (AbilityDice, BoostDice, ChallengeDice, DicePool, dice_from_color_char,
                   DifficultyDice, ProficiencyDice, SetbackDice, Side, Symbol)
 
