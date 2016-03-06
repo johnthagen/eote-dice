@@ -38,16 +38,23 @@ Usage
 -----
 
 Input the dice pool using the first letter of the color of the die (except black Setback die which
-use ``k``).  Use ``--roll`` to perform a roll or ``--analyze`` to statistically analyze.
+use ``k``).  Use ``--roll`` to perform a roll or ``analyze`` to statistically analyze.
 
 .. code:: shell-session
 
-    $ eote_dice --pool yygbrppk --analyze
+    $ eote_dice --pool yygbrppk analyze --success-cutoff=1 --advantage-cutoff=2
     $ eote_dice --pool yygbrppk --roll
 
 
 Releases
 --------
+
+1.0.0 - 2016-03-05
+^^^^^^^^^^^^^^^^^^
+
+Added four dimensional distribution to analyze dependant probabilities (e.g.
+What is the probability of at least 1 success and 2 advantage?). Contributions by
+@drhagen.
 
 0.3.2 - 2015-12-31
 ^^^^^^^^^^^^^^^^^^
