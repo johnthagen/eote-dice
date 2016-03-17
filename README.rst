@@ -4,11 +4,11 @@ EotE Dice
 .. image:: https://travis-ci.org/johnthagen/eote-dice.svg
     :target: https://travis-ci.org/johnthagen/eote-dice
 
-.. image:: https://codeclimate.com/repos/56e9fffa74093d0074004af0/badges/aa00c990a365cae5e42f/gpa.svg
-   :target: https://codeclimate.com/repos/56e9fffa74093d0074004af0/feed
+.. image:: https://codeclimate.com/github/johnthagen/eote-dice/badges/gpa.svg
+   :target: https://codeclimate.com/github/johnthagen/eote-dice
 
-.. image:: https://codeclimate.com/repos/56e9fffa74093d0074004af0/badges/aa00c990a365cae5e42f/issue_count.svg
-   :target: https://codeclimate.com/repos/56e9fffa74093d0074004af0/feed
+.. image:: https://codeclimate.com/github/johnthagen/eote-dice/badges/issue_count.svg
+   :target: https://codeclimate.com/github/johnthagen/eote-dice
 
 .. image:: https://codecov.io/github/johnthagen/eote-dice/coverage.svg
     :target: https://codecov.io/github/johnthagen/eote-dice
