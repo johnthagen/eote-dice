@@ -1,4 +1,9 @@
 languages:
   Python: true
+engines:
+  radon:
+    enabled: true
+    config:
+      threshold: "C"
 exclude_paths:
 - test.py
