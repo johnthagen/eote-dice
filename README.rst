@@ -60,7 +60,7 @@ Releases
 
 Added four dimensional distribution to analyze dependant probabilities (e.g.
 What is the probability of at least 1 success and 2 advantage?). Contributions by
-@drhagen.
+`@drhagen<https://github.com/theandrewdavis>`_.
 
 0.3.2 - 2015-12-31
 ^^^^^^^^^^^^^^^^^^
@@ -81,7 +81,8 @@ Added rolling capability.
 0.2.0 - 2015-12-31
 ^^^^^^^^^^^^^^^^^^
 
-Dice statistics are now calculated using discrete distribution.  Contribution by @drhagen.
+Dice statistics are now calculated using discrete distribution.  Contribution by
+`@drhagen<https://github.com/theandrewdavis>`_.
 
 0.1.3 - 2015-12-25
 ^^^^^^^^^^^^^^^^^^
