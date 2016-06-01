@@ -3,9 +3,9 @@
 import argparse
 import sys
 
-from dice import DicePool
-
 import colorama
+
+from dice import DicePool
 
 
 def parse_arguments():

@@ -5,7 +5,7 @@
 import unittest
 from unittest import mock
 
-from dice import (AbilityDice, BoostDice, ChallengeDice, DicePool, dice_from_color_char,
+from dice import (AbilityDice, BoostDice, ChallengeDice, dice_from_color_char, DicePool,
                   DifficultyDice, ProficiencyDice, SetbackDice, Side, Symbol)
 from distribution import QuadDistribution
 
