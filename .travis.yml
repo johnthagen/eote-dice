@@ -16,7 +16,7 @@ install:
   - pip install flake8 pep8-naming flake8-quotes flake8-import-order
 
 before_script:
-  - flake8 --max-line-length=99 --import-order-style=google
+  - flake8 --max-line-length=99 --import-order-style=google --application-import-names=dice,distribution
 
 script:
   python -Werror -m coverage run test.py
