@@ -237,16 +237,16 @@ class DicePoolMean:
                 '\tSuccess: {6}{1}{4}\n'
                 '\tAdvantage: {7}{2}{4}\n'
                 '\tDespair: {8}{3}{4}'.format(
-            round(self.triumph, 2),
-            round(self.success, 2),
-            round(self.advantage, 2),
-            round(self.despair, 2),
-            colorama.Fore.RESET,
-            triumph_color,
-            success_color,
-            advantage_color,
-            despair_color,
-            colorama.Style.BRIGHT))
+                    round(self.triumph, 2),
+                    round(self.success, 2),
+                    round(self.advantage, 2),
+                    round(self.despair, 2),
+                    colorama.Fore.RESET,
+                    triumph_color,
+                    success_color,
+                    advantage_color,
+                    despair_color,
+                    colorama.Style.BRIGHT))
 
 
 class DicePool:
