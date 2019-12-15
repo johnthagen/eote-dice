@@ -12,11 +12,11 @@ setuptools.setup(
     author='John Hagen',
     author_email='johnthagen@gmail.com',
     url='https://github.com/johnthagen/eote-dice',
-    license='MIT',
 
     install_requires=open('requirements.txt').readlines(),
     zip_safe=False,
 
+    license='MIT',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Console',
@@ -29,6 +29,7 @@ setuptools.setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Games/Entertainment :: Role-Playing',
     ],
 

@@ -52,6 +52,12 @@ use ``k``).  Use ``--roll`` to perform a roll or ``analyze`` to statistically an
 Releases
 --------
 
+Unreleased
+^^^^^^^^^^
+
+- Add Python 3.8 support.
+- Include license file.
+
 1.1.0 - 2017-07-09
 ^^^^^^^^^^^^^^^^^^
 
