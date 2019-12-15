@@ -185,8 +185,8 @@ def dice_from_color_char(color_char: str) -> Dice:
         dice_color = DiceColor[color_char]
     except KeyError:
         raise ValueError('Invalid dice color: {}.  Possible choices are: {}'.format(
-                color_char,
-                DiceColor.names()))
+            color_char,
+            DiceColor.names()))
     return dice_color.value()
 
 
@@ -237,16 +237,16 @@ class DicePoolMean:
                 '\tSuccess: {6}{1}{4}\n'
                 '\tAdvantage: {7}{2}{4}\n'
                 '\tDespair: {8}{3}{4}'.format(
-                    round(self.triumph, 2),
-                    round(self.success, 2),
-                    round(self.advantage, 2),
-                    round(self.despair, 2),
-                    colorama.Fore.RESET,
-                    triumph_color,
-                    success_color,
-                    advantage_color,
-                    despair_color,
-                    colorama.Style.BRIGHT))
+            round(self.triumph, 2),
+            round(self.success, 2),
+            round(self.advantage, 2),
+            round(self.despair, 2),
+            colorama.Fore.RESET,
+            triumph_color,
+            success_color,
+            advantage_color,
+            despair_color,
+            colorama.Style.BRIGHT))
 
 
 class DicePool:
@@ -258,10 +258,10 @@ class DicePool:
             self.distribution = self.distribution.add(dice.distribution)
 
     def probability_above(self,
-                          triumph_cutoff: int=None,
-                          success_cutoff: int=None,
-                          advantage_cutoff: int=None,
-                          despair_cutoff: int=None) -> float:
+                          triumph_cutoff: int = None,
+                          success_cutoff: int = None,
+                          advantage_cutoff: int = None,
+                          despair_cutoff: int = None) -> float:
         return self.distribution.probability_above(cutoff=(triumph_cutoff,
                                                            success_cutoff,
                                                            advantage_cutoff,

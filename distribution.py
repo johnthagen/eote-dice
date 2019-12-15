@@ -5,7 +5,7 @@ from typing import Mapping, Tuple
 
 
 class QuadDistribution:
-    def __init__(self, distribution: Mapping[Tuple[int, int, int, int], int]=None):
+    def __init__(self, distribution: Mapping[Tuple[int, int, int, int], int] = None):
         if distribution is None:
             distribution = {(0, 0, 0, 0): 1}
         self._distribution = distribution
@@ -23,7 +23,7 @@ class QuadDistribution:
         return tuple(val_sum)
 
     def probability_above(self,
-                          cutoff: Tuple[int, int, int, int]=(None, None, None, None)) -> float:
+                          cutoff: Tuple[int, int, int, int] = (None, None, None, None)) -> float:
         hits = 0
         for (value, frequency) in self._distribution.items():
             for i, cut in enumerate(cutoff):
