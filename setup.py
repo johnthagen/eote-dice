@@ -3,9 +3,9 @@ import setuptools
 
 setuptools.setup(
     name='eote-dice',
-    version='1.1.0',
+    version='1.2.0',
 
-    description='Utility for analyzing EotE dice rolls.',
+    description='Utility for analyzing Star Wars Edge of the Empire (EotE) dice rolls.',
     long_description=open('README.rst').read(),
     keywords='star wars EotE dice role-playing',
 

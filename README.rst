@@ -22,7 +22,7 @@ EotE Dice
 .. image:: https://img.shields.io/pypi/pyversions/eote-dice.svg
     :target: https://pypi.python.org/pypi/eote-dice/
 
-Analyze or roll SW EotE role-playing game dice pools.
+Analyze or roll Star Wars Edge of the Empire (EotE) role-playing game dice pools.
 
 Installation
 ------------
@@ -52,8 +52,8 @@ use ``k``).  Use ``--roll`` to perform a roll or ``analyze`` to statistically an
 Releases
 --------
 
-Unreleased
-^^^^^^^^^^
+1.2.0 - 2019-12-15
+^^^^^^^^^^^^^^^^^^
 
 - Add Python 3.8 support.
 - Include license file.
