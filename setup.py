@@ -14,6 +14,7 @@ setuptools.setup(
     url='https://github.com/johnthagen/eote-dice',
 
     install_requires=open('requirements.txt').readlines(),
+    python_requires='>=3.5',
     zip_safe=False,
 
     license='MIT',
