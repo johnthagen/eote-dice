@@ -1,8 +1,8 @@
 EotE Dice
 =========
 
-.. image:: https://travis-ci.org/johnthagen/eote-dice.svg
-    :target: https://travis-ci.org/johnthagen/eote-dice
+.. image:: https://travis-ci.com/johnthagen/eote-dice.svg
+    :target: https://travis-ci.com/johnthagen/eote-dice
 
 .. image:: https://codeclimate.com/github/johnthagen/eote-dice/badges/gpa.svg
    :target: https://codeclimate.com/github/johnthagen/eote-dice
